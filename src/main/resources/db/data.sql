@@ -1,0 +1,2 @@
+insert into MOVIE (id,title,genre, production,premiere_date,director,description) values (1, 'Nietykalni', 'Dramat', 'Francja', '23/09/2011', 'Olivier Nakache', 'Sparaliżowany milioner zatrudnia do opieki młodego chłopaka z przedmieścia, który właśnie wyszedł z więzienia.' );
+insert into MOVIE (id,title,genre, production,premiere_date,director,description) values (2, 'Tykalni', 'heheszki', 'Francja', '23/09/2011', 'Olivier Nakache', 'Sparaliżowany milioner zatrudnia do opieki młodego chłopaka z przedmieścia, który właśnie wyszedł z więzienia.' );
