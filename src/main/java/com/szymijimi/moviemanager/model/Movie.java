@@ -12,12 +12,14 @@ import javax.persistence.*;
 public class Movie {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "movie_generator")
+    @SequenceGenerator(name="movie_generator", sequenceName = "movie_seq", initialValue = 11)
+    @Column(name="id", updatable = false, nullable = false)
     private Integer id;
     private String title;
     private String genre;
     private String production;
-    private String premiere_date;
+    private String premiereDate;
     private String director;
     private String description;
 
@@ -57,11 +59,11 @@ public class Movie {
     }
 
     public String getPremiereDate() {
-        return premiere_date;
+        return premiereDate;
     }
 
-    public void setPremiereDate(String premiere_date) {
-        this.premiere_date = premiere_date;
+    public void setPremiereDate(String premiereDate) {
+        this.premiereDate = premiereDate;
     }
 
     public String getDirector() {
