@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
 @RestController
+@RequestMapping(value="/api")
 public class MovieController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
@@ -41,7 +41,6 @@ public class MovieController {
         try{
             Optional<Movie> downloadedMovie =  movieRepository.findById(id);
             Movie movie = downloadedMovie.get();
-            LOGGER.info("Data premiery: "+ movie.getPremiereDate());
             return ResponseEntity.status(HttpStatus.OK).body(movie);
         }catch(Exception e)
         {
@@ -54,14 +53,10 @@ public class MovieController {
     public ResponseEntity addMovie(@RequestBody Movie movie)
     {
         try{
-
-            LOGGER.info("Received movie: "+movie.toString());
             movieRepository.save(movie);
-            LOGGER.info(" udało się");
             return ResponseEntity.status(HttpStatus.OK).body("Zapisano pomyślnie");
         }catch(Exception e)
         {
-            LOGGER.info("nie udało się");
             LOGGER.error("Error while searching for movies: "+ e.toString());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nie zapisano pomyślnie");
         }

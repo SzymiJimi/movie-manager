@@ -1,14 +1,12 @@
 package com.szymijimi.moviemanager.model;
 
 
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="movie")
-
-@Component
 public class Movie {
 
     @Id
